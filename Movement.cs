@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     [SerializeField] InputAction thrust;
-    [SerializeField] float thrustStrength = 10f;
+    [SerializeField] float thrustStrength = 1000f;
     Rigidbody rb ;
 
     private void Start() {
