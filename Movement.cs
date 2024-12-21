@@ -5,14 +5,20 @@ using UnityEngine.InputSystem;
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     [SerializeField] InputAction thrust;
+    [SerializeField] float thrustStrength = 10f;
+    Rigidbody rb ;
+
+    private void Start() {
+       rb = GetComponent<Rigidbody>();  
+    }
 
     private void OnEnable() {
         thrust.Enable();
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         if(thrust.IsPressed()){
-            Debug.Log("Thrusting");
+            rb.AddRelativeForce(Vector3.up * thrustStrength * Time.fixedDeltaTime);
         }
     }
     
